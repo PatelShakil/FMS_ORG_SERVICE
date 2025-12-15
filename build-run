@@ -1,0 +1,5 @@
+#!/bin/sh
+mvn clean package
+docker build -t PatelShakil/org-service .
+docker rm -f org-service 2>/dev/null || true
+docker run -it --name org-service -p 8080:8080 --name org-service PatelShakil/org-service
